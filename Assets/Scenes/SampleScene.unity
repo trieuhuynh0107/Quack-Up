@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &485535566 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4635574072856459423, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
+  m_PrefabInstance: {fileID: 4092309292240839416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,12 +214,12 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.88, z: -12.85}
+  m_LocalPosition: {x: -0.38, y: 0.60000014, z: -13.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1611416958}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 485535566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -434,7 +439,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4635574072856459423, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 519420032}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
 --- !u!1001 &7670558922192407146
@@ -485,14 +493,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1517072476654844425, guid: 539c54b3bfe36264aaf54a50beee22a0, type: 3}
-      propertyPath: m_Size.y
-      value: 0.21162748
-      objectReference: {fileID: 0}
-    - target: {fileID: 1517072476654844425, guid: 539c54b3bfe36264aaf54a50beee22a0, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.4642024
-      objectReference: {fileID: 0}
     - target: {fileID: 8743691620856751992, guid: 539c54b3bfe36264aaf54a50beee22a0, type: 3}
       propertyPath: m_Name
       value: Lifebouy
@@ -506,7 +506,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 519420032}
   - {fileID: 4092309292240839416}
   - {fileID: 7670558922192407146}
   - {fileID: 1604628747}
