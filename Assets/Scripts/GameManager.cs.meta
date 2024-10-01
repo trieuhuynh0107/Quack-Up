@@ -3,7 +3,9 @@ guid: 2ae6eebdd1aa85049be9ebb967b4aacd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Duck: {fileID: 8071567104259407983, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
+  - lifebuoyPrefab: {fileID: 8743691620856751992, guid: 539c54b3bfe36264aaf54a50beee22a0, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
