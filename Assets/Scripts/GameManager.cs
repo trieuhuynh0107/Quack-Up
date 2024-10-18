@@ -12,15 +12,15 @@ public class GameManager : MonoBehaviour
     private HashSet<Vector2> lifebuoyPositions = new HashSet<Vector2>();
 
     // Distance between lifebuoys
-    public float heightOffset = 2.0f; // Minimum distance between lifebuoys
-    private float nextYPosition = 2.0f; // Next Y position for the lifebuoy
+    public float heightOffset = 100.0f; // Minimum distance between lifebuoys
+    private float nextYPosition = 100.0f; // Next Y position for the lifebuoy
 
     // Limits for random position generation
     public float minX = -5.5f; // Minimum X coordinate for lifebuoys
     public float maxX = 5.5f; // Maximum X coordinate for lifebuoys
 
     // Maximum number of lifebuoys at each height
-    public int maxLifebuoysPerHeight = 3; // Limit for lifebuoys at each height
+    public int maxLifebuoysPerHeight = 5; // Limit for lifebuoys at each height
 
     // Count of lifebuoys created at each height
     private Dictionary<float, int> lifebuoyCountPerHeight = new Dictionary<float, int>();
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Initialize the starting Y position
-        nextYPosition = 2.0f;
+        nextYPosition = 10.0f;
     }
 
     void Update()

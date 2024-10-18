@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Playercontroller : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class Playercontroller : MonoBehaviour
     public Rigidbody2D rb;
 
     private float moveX;
+    private float topScore=0.0f;
+    public Text scoreText;
     // Start is called before the first frame update
     void Awake()
     {
@@ -17,8 +21,12 @@ public class Playercontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        if(rb.velocity.y > 0 && transform.position.y > topScore)
+        {
+            topScore = transform.position.y;
+        }
+        scoreText.text = "Score:" + Mathf.Round(topScore).ToString();
+     }
     private void FixedUpdate()
     {
         moveX = Input.GetAxis("Horizontal");
