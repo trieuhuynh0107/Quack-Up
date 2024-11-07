@@ -21,7 +21,15 @@ public class Playercontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(rb.velocity.y > 0 && transform.position.y > topScore)
+        if (moveX < 0)
+        {
+            this.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+        {
+            this.GetComponent<SpriteRenderer>().flipX = true;
+        }
+            if (rb.velocity.y > 0 && transform.position.y > topScore)
         {
             topScore = transform.position.y;
         }
