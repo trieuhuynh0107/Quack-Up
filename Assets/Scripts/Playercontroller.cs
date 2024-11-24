@@ -1,43 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
-
-public class Playercontroller : MonoBehaviour
+namespace Game.Player
 {
-    public float moveSpeed = 10f;
-    public Rigidbody2D rb;
+    public class PlayerController : MonoBehaviour
+    {
+        public float moveSpeed = 10f; // Tốc độ di chuyển
+        private Rigidbody2D rb;
+        private SpriteRenderer spriteRenderer;
 
-    private float moveX;
-    private float topScore=0.0f;
-    public Text scoreText;
-    // Start is called before the first frame update
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+        private float moveX; // Lưu giá trị Input.Horizontal
+        private bool isFacingRight = true; // Hướng mặc định của nhân vật
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (moveX < 0)
+        void Awake()
         {
-            this.GetComponent<SpriteRenderer>().flipX = false;
+            rb = GetComponent<Rigidbody2D>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
-        else
+
+        void Update()
         {
-            this.GetComponent<SpriteRenderer>().flipX = true;
+            // Nhận Input từ bàn phím
+            moveX = Input.GetAxisRaw("Horizontal"); // Sử dụng Input thô để tránh độ trễ
+            FlipSprite(); // Xử lý hướng sprite
         }
-            if (rb.velocity.y > 0 && transform.position.y > topScore)
+
+        void FixedUpdate()
         {
-            topScore = transform.position.y;
+            MovePlayer();
         }
-        scoreText.text = "Score:" + Mathf.Round(topScore).ToString();
-     }
-    private void FixedUpdate()
-    {
-        moveX = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2 (moveX * moveSpeed, rb.velocity.y);
+
+        // Xử lý di chuyển trong FixedUpdate
+        private void MovePlayer()
+        {
+            rb.velocity = new Vector2(moveX * moveSpeed, rb.velocity.y); // Di chuyển theo trục X
+        }
+
+        // Xử lý hướng nhân vật
+        private void FlipSprite()
+        {
+            if (moveX > 0 && !isFacingRight)
+            {
+                isFacingRight = true;
+                spriteRenderer.flipX = false; // Quay mặt về bên phải
+            }
+            else if (moveX < 0 && isFacingRight)
+            {
+                isFacingRight = false;
+                spriteRenderer.flipX = true; // Quay mặt về bên trái
+            }
+        }
     }
 }

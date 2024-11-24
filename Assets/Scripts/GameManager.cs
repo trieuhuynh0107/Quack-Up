@@ -1,80 +1,89 @@
-﻿using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject Duck; // Reference to the Duck GameObject
-    public GameObject lifebuoyPrefab; // Reference to the lifebuoy prefab
-    private GameObject myLifebuoy; // Reference to the created lifebuoy
+    public GameObject Player; // Nhân vật chính
+    public GameObject platformPrefab; // Prefab nền tảng
+    public GameObject specialPlatformPrefab; // Prefab nền đặc biệt
+    public int slotsPerLayer = 6; // Số khu vực trong một tầng (số ô dọc theo trục X)
+    public float minLayerHeight = 3.0f; // Khoảng cách nhỏ nhất giữa các tầng
+    public float maxLayerHeight = 8.0f; // Khoảng cách lớn nhất giữa các tầng
+    public int minPlatformsPerLayer = 2; // Số lượng nền ít nhất trong một tầng
+    public int maxPlatformsPerLayer = 5; // Số lượng nền nhiều nhất trong một tầng
 
-    // Store the positions of the created lifebuoys
-    private HashSet<Vector2> lifebuoyPositions = new HashSet<Vector2>();
+    public float minX = -5.5f; // Giới hạn trái
+    public float maxX = 5.5f; // Giới hạn phải
+    public float minDistanceBetweenPlatforms = 1.5f; // Khoảng cách tối thiểu giữa các nền
 
-    // Distance between lifebuoys
-    public float heightOffset = 100.0f; // Minimum distance between lifebuoys
-    private float nextYPosition = 100.0f; // Next Y position for the lifebuoy
-
-    // Limits for random position generation
-    public float minX = -5.5f; // Minimum X coordinate for lifebuoys
-    public float maxX = 5.5f; // Maximum X coordinate for lifebuoys
-
-    // Maximum number of lifebuoys at each height
-    public int maxLifebuoysPerHeight = 5; // Limit for lifebuoys at each height
-
-    // Count of lifebuoys created at each height
-    private Dictionary<float, int> lifebuoyCountPerHeight = new Dictionary<float, int>();
+    private float nextLayerY = 4.0f; // Vị trí Y cho tầng tiếp theo
+   
 
     void Start()
     {
-        // Initialize the starting Y position
-        nextYPosition = 10.0f;
+        // Spawn trước 3 tầng khi bắt đầu game
+        SpawnInitialLayers(3);
+
     }
 
     void Update()
     {
+       
+        // Kiểm tra nếu nhân vật đã lên đủ cao để tạo tầng mới
+        if (Player != null && Player.transform.position.y > nextLayerY - minLayerHeight*5)
+        {
+            SpawnLayer();
+        }
+    }
+    private void SpawnInitialLayers(int layersToSpawn)
+    {
+        for (int i = 0; i < layersToSpawn; i++)
+        {
+            SpawnLayer();
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void SpawnLayer()
     {
-        // Check if the number of lifebuoys at this height has reached the limit
-        if (lifebuoyCountPerHeight.ContainsKey(nextYPosition) && lifebuoyCountPerHeight[nextYPosition] >= maxLifebuoysPerHeight)
+        // Random số lượng Lifebuoy cho tầng này
+        int platformsThisLayer = Random.Range(minPlatformsPerLayer, maxPlatformsPerLayer);
+
+        // Chia dải X thành các slot
+        float slotWidth = (maxX - minX) / slotsPerLayer; // Chiều rộng mỗi slot
+        List<int> usedSlots = new List<int>(); // Danh sách các slot đã dùng
+
+        for (int i = 0; i < platformsThisLayer; i++)
         {
-            return; // Do not create more lifebuoys if the limit has been reached
+            int randomSlot;
+
+            // Random slot chưa được sử dụng
+            do
+            {
+                randomSlot = Random.Range(0, slotsPerLayer);
+            } while (usedSlots.Contains(randomSlot) && usedSlots.Count < slotsPerLayer);
+
+            // Đánh dấu slot này đã được dùng
+            usedSlots.Add(randomSlot);
+
+            // Random vị trí X trong slot
+            float randomX = minX + randomSlot * slotWidth + Random.Range(-slotWidth / 3, slotWidth / 3);
+
+            // Random lệch nhẹ theo trục Y
+            float offsetY = Random.Range(-2.0f, 1.0f);
+            Vector2 spawnPosition = new Vector2(randomX, nextLayerY + offsetY);
+
+            // Random loại nền tảng
+            if (Random.value < 0.2f) // 20% cơ hội tạo nền đặc biệt
+            {
+                Instantiate(specialPlatformPrefab, spawnPosition, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(platformPrefab, spawnPosition, Quaternion.identity);
+            }
         }
 
-        // Create a lifebuoy at the next height
-        float randomX;
-
-        // Ensure the random position does not overlap
-        do
-        {
-            randomX = Random.Range(minX, maxX); // Randomize the X coordinate
-        } while (lifebuoyPositions.Contains(new Vector2(randomX, nextYPosition))); // Check if the position already exists
-
-        // Create the position for the lifebuoy
-        Vector2 newPosition = new Vector2(randomX, nextYPosition);
-
-        // Add the new position to the set
-        lifebuoyPositions.Add(newPosition);
-
-        // Instantiate the lifebuoy at the new position
-        myLifebuoy = Instantiate(lifebuoyPrefab, newPosition, Quaternion.identity);
-
-        // Update the count of lifebuoys at this height
-        if (lifebuoyCountPerHeight.ContainsKey(nextYPosition))
-        {
-            lifebuoyCountPerHeight[nextYPosition]++;
-        }
-        else
-        {
-            lifebuoyCountPerHeight[nextYPosition] = 1; // Initialize the count for this height
-        }
-
-        // Update the Y position for the next lifebuoy
-        nextYPosition += heightOffset;
-
-        // Destroy the colliding object
-        Destroy(collision.gameObject);
+        // Random khoảng cách đến tầng tiếp theo
+        nextLayerY += Random.Range(minLayerHeight, maxLayerHeight);
     }
 }
