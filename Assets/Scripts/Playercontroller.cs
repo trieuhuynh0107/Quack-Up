@@ -21,7 +21,12 @@ namespace Game.Player
         {
             // Nhận Input từ bàn phím
             moveX = Input.GetAxisRaw("Horizontal"); // Sử dụng Input thô để tránh độ trễ
-            FlipSprite(); // Xử lý hướng sprite
+
+            // Gọi FlipSprite khi có sự thay đổi hướng di chuyển
+            if ((moveX > 0 && !isFacingRight) || (moveX < 0 && isFacingRight))
+            {
+                FlipSprite();
+            }
         }
 
         void FixedUpdate()
@@ -38,16 +43,8 @@ namespace Game.Player
         // Xử lý hướng nhân vật
         private void FlipSprite()
         {
-            if (moveX > 0 && !isFacingRight)
-            {
-                isFacingRight = true;
-                spriteRenderer.flipX = false; // Quay mặt về bên phải
-            }
-            else if (moveX < 0 && isFacingRight)
-            {
-                isFacingRight = false;
-                spriteRenderer.flipX = true; // Quay mặt về bên trái
-            }
+            isFacingRight = !isFacingRight; // Đảo trạng thái hướng mặt
+            spriteRenderer.flipX = !spriteRenderer.flipX; // Đảo chiều sprite
         }
     }
 }
