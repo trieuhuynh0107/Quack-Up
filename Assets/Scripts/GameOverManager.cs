@@ -35,6 +35,6 @@ public class GameOverManager : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1; // Khôi phục thời gian
-        SceneManager.LoadScene("Main menu"); // Thay "MainMenu" bằng tên scene màn hình chính của bạn
+        SceneManager.LoadScene("Menu"); // Thay "MainMenu" bằng tên scene màn hình chính của bạn
     }
 }

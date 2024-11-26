@@ -24,7 +24,7 @@ namespace Game.CameraSystem
             }
 
             // Kiểm tra nếu nhân vật rơi quá xa
-            if (target.position.y < transform.position.y - 10f)
+            if (target.position.y < transform.position.y - 8f)
             {
                 Debug.Log("Game Over!");
                 // Gọi hàm Game Over hoặc reset game
