@@ -265,7 +265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 223823082}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,63 +287,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 485535566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &444049563
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1932419373062419516, guid: 768ae5deb00992d40a83493a9c6d5bf4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 1932419373062419516, guid: 768ae5deb00992d40a83493a9c6d5bf4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 1932419373062419516, guid: 768ae5deb00992d40a83493a9c6d5bf4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -6.731924
-      objectReference: {fileID: 0}
-    - target: {fileID: 1932419373062419516, guid: 768ae5deb00992d40a83493a9c6d5bf4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1932419373062419516, guid: 768ae5deb00992d40a83493a9c6d5bf4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1932419373062419516, guid: 768ae5deb00992d40a83493a9c6d5bf4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1932419373062419516, guid: 768ae5deb00992d40a83493a9c6d5bf4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1932419373062419516, guid: 768ae5deb00992d40a83493a9c6d5bf4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1932419373062419516, guid: 768ae5deb00992d40a83493a9c6d5bf4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1932419373062419516, guid: 768ae5deb00992d40a83493a9c6d5bf4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8221195252636544790, guid: 768ae5deb00992d40a83493a9c6d5bf4, type: 3}
-      propertyPath: m_Name
-      value: Shark
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 768ae5deb00992d40a83493a9c6d5bf4, type: 3}
 --- !u!4 &485535566 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4635574072856459423, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
@@ -1379,6 +1322,7 @@ GameObject:
   - component: {fileID: 1945248496}
   - component: {fileID: 1945248498}
   - component: {fileID: 1945248499}
+  - component: {fileID: 1945248500}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1408,6 +1352,8 @@ MonoBehaviour:
   Propeller: {fileID: 3749913460310218810, guid: ef1fb8b066a12044595977c95e992397, type: 3}
   offset: 1.2
   initialPlatforms: 10
+  platformsPerHeight: 3
+  heightIncrement: 3
 --- !u!4 &1945248497
 Transform:
   m_ObjectHideFlags: 0
@@ -1452,6 +1398,27 @@ MonoBehaviour:
   gameOverPanel: {fileID: 1991135332}
   highScoreText: {fileID: 1411344647}
   currentScoreText: {fileID: 212594426}
+--- !u!114 &1945248500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945248495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bbad06e0afbc7d4881f91bb90280086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 8221195252636544790, guid: 768ae5deb00992d40a83493a9c6d5bf4, type: 3}
+  - {fileID: 2950588817852892877, guid: b6b97ef591e9c644aa76f8e35fd55af0, type: 3}
+  player: {fileID: 485535566}
+  spawnHeightOffset: 10
+  minX: -5
+  maxX: 5
+  minSpawnInterval: 5
+  maxSpawnInterval: 10
 --- !u!1 &1950399446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,6 +1919,10 @@ PrefabInstance:
       value: Duck
       objectReference: {fileID: 0}
     - target: {fileID: 8071567104259407983, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071567104259407983, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -1982,4 +1953,3 @@ SceneRoots:
   - {fileID: 1526299954}
   - {fileID: 1108187118}
   - {fileID: 988711924917799110}
-  - {fileID: 444049563}

@@ -1,25 +1,25 @@
 ﻿using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyBase : MonoBehaviour
 {
     public int health = 1; // Máu của Enemy
     public float moveSpeed = 2f; // Tốc độ di chuyển
     public float moveRange = 2f; // Khoảng cách di chuyển
 
-    private Vector3 startingPosition;
-    private bool movingRight = true;
+    protected Vector3 startingPosition;
+    protected bool movingRight = true;
 
-    void Start()
+    protected virtual void Start()
     {
         startingPosition = transform.position; // Lưu vị trí ban đầu
     }
 
-    void Update()
+    protected virtual void Update()
     {
         MoveEnemy();
     }
 
-    private void MoveEnemy()
+    protected void MoveEnemy()
     {
         if (movingRight)
         {
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {

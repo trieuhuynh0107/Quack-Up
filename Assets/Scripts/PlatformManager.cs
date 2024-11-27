@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     [Header("Platform Generation Settings")]
     public float offset = 1.2f; // Khoảng cách mặc định giữa các nền tảng
     public int initialPlatforms = 10; // Số lượng platform khởi tạo ban đầu
+    public int platformsPerHeight = 3; // Số lượng tối thiểu platform trong một tầng
+    public float heightIncrement = 3f; // Chiều cao mỗi tầng (khoảng cách Y)
 
     private Vector3 topLeft; // Góc trên bên trái của màn hình
     private float CurrentY = 0f; // Vị trí Y hiện tại để tạo nền tảng
@@ -34,9 +36,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // Kiểm tra nếu nhân vật đã lên đủ cao để tạo tầng mới
-        if (Player != null && Player.transform.position.y > CurrentY - 10f)
+        if (Player != null && Player.transform.position.y > CurrentY - 15f) // Tăng số platform tạo trước
         {
-            GeneratePlatform(5); // Tạo thêm 5 nền tảng mới
+            GeneratePlatform(10); // Tạo thêm 10 nền tảng mới
         }
     }
 
@@ -44,21 +46,35 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < num; i++)
         {
-            // Tính toán vị trí X và Y ngẫu nhiên cho platform
-            float distX = Random.Range(topLeft.x + offset, -topLeft.x - offset);
-            float distY = Random.Range(1f, 4f); // Khoảng cách ngẫu nhiên giữa các nền tảng
-
-            // Tăng CurrentY để đặt nền tảng mới cao hơn
-            CurrentY += distY;
-            Vector3 platformPos = new Vector3(distX, CurrentY, 0);
-
-            // Tạo nền tảng ngẫu nhiên
-            GameObject platform = CreateRandomPlatform(platformPos);
-
-            // Nếu platform được tạo, thêm vật phẩm tương tác ngẫu nhiên
-            if (platform != null)
+            // Tạo đủ số lượng platform trong một chiều cao
+            for (int j = 0; j < platformsPerHeight; j++)
             {
-                CreateRandomInteractiveObject(platform, platformPos);
+                float distX;
+                HashSet<float> usedPositions = new HashSet<float>(); // Lưu vị trí đã tạo để tránh trùng lặp
+
+                // Tạo vị trí X ngẫu nhiên không trùng lặp
+                do
+                {
+                    distX = Random.Range(topLeft.x + offset, -topLeft.x - offset);
+                } while (usedPositions.Contains(distX));
+
+                usedPositions.Add(distX);
+
+                // Tính toán vị trí Y
+                float distY = Random.Range(1.2f, 2.5f); 
+
+                CurrentY += distY;
+
+                Vector3 platformPos = new Vector3(distX, CurrentY, 0);
+
+                // Tạo nền tảng ngẫu nhiên
+                GameObject platform = CreateRandomPlatform(platformPos);
+
+                // Nếu platform được tạo, thêm vật phẩm tương tác ngẫu nhiên
+                if (platform != null)
+                {
+                    CreateRandomInteractiveObject(platform, platformPos);
+                }
             }
         }
     }
@@ -120,5 +136,4 @@ public class GameManager : MonoBehaviour
         // Tính khoảng cách phá hủy: Dưới Player 10 đơn vị
         return playerTransform.position.y - 10f;
     }
-
 }
