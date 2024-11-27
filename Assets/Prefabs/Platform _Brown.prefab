@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7160093675934279068}
   - component: {fileID: 3238044046765717629}
   - component: {fileID: 1964543830327904581}
+  - component: {fileID: -1501452164902998991}
   m_Layer: 0
   m_Name: Platform _Brown
   m_TagString: Untagged
@@ -261,3 +262,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpForce: 600
+--- !u!95 &-1501452164902998991
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6413049778270328101}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b7886474210578e49bf9a967c6c19998, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

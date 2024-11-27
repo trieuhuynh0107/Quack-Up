@@ -4,8 +4,14 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - Duck: {fileID: 8071567104259407983, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
-  - lifebuoyPrefab: {fileID: 8743691620856751992, guid: 539c54b3bfe36264aaf54a50beee22a0, type: 3}
+  - Player: {fileID: 8071567104259407983, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
+  - PlatformGreen: {fileID: 2805075470874858395, guid: 539c54b3bfe36264aaf54a50beee22a0, type: 3}
+  - PlatformBlue: {fileID: 6147276971515841787, guid: b242a650db884f74cb3c1066c548b2a3, type: 3}
+  - PlatformWhite: {fileID: 2310022540274190497, guid: 8914e69515363a845bd9a4dcf2d5afc1, type: 3}
+  - PlatformBrown: {fileID: 6413049778270328101, guid: cb08a4cb27c16694c909f7ac73de7f1c, type: 3}
+  - Spring: {fileID: 6412746033702433682, guid: 66d6e9ee7d6a7be4cba1d30daf6448f0, type: 3}
+  - Trampoline: {fileID: 8214340590924499576, guid: 8c43a0c815e82c342ade4879fa3badd1, type: 3}
+  - Propeller: {fileID: 3749913460310218810, guid: ef1fb8b066a12044595977c95e992397, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

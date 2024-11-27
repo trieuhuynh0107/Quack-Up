@@ -75,14 +75,15 @@ public class Propeller : Collectible
 
     protected override void Collect(GameObject player)
     {
-        if (!isAttached && player.transform.childCount == 0)
+        if (!isAttached && player.transform.Find("Propeller") == null)
         {
             isAttached = true; // Đánh dấu Propeller đã được gắn vào Player
             playerRigidbody = player.GetComponent<Rigidbody2D>();
 
             // Gắn Propeller vào Player
             transform.parent = player.transform;
-            transform.localPosition = new Vector3(-0.25f, 2f, 0);
+            transform.name = "Propeller"; // Đặt tên để dễ kiểm tra
+            transform.localPosition = new Vector3(0, 2f, 0); // Điều chỉnh vị trí cho đúng với Player
 
             // Vô hiệu hóa collider
             if (TryGetComponent(out BoxCollider2D boxCollider))
@@ -117,6 +118,7 @@ public class Propeller : Collectible
             }
         }
     }
+
 
     private void DetachFromPlayer()
     {

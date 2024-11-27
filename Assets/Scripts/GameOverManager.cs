@@ -1,40 +1,48 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement; // Dùng để quản lý scene
+using UnityEngine.SceneManagement;
+using TMPro; // TextMeshPro cho UI
 
 public class GameOverManager : MonoBehaviour
 {
-    public Transform player;
-    public float gameOverThreshold = -10f;
-    public GameObject gameOverUI; // Tham chiếu đến UI Game Over
+    public GameObject gameOverPanel; // Game Over Panel
+    public TextMeshProUGUI highScoreText; // Hiển thị High Score
+    public TextMeshProUGUI currentScoreText; // Hiển thị Current Score
 
-    private bool isGameOver = false;
+    private bool isGameOver = false; // Trạng thái Game Over
 
-    void Update()
+    public void ShowGameOverMenu(int currentScore)
     {
-        if (!isGameOver && player.position.y < gameOverThreshold)
-        {
-            GameOver();
-        }
-    }
-
-    void GameOver()
-    {
+        if (isGameOver) return; // Tránh gọi nhiều lần
         isGameOver = true;
-        Debug.Log("Game Over!");
 
-        Time.timeScale = 0; // Dừng game
-        gameOverUI.SetActive(true); // Hiển thị UI Game Over
+        // Hiển thị Game Over Panel
+        gameOverPanel.SetActive(true);
+
+        // Cập nhật High Score
+        int highScore = Data_Manager.GetHighScore();
+        if (currentScore > highScore)
+        {
+            highScore = currentScore;
+            Data_Manager.SetHighScore(highScore); // Lưu điểm cao nhất
+        }
+
+        // Hiển thị điểm trong Panel
+        highScoreText.text = $"High Score: {highScore}";
+        currentScoreText.text = $"Score: {currentScore}";
+
+        // Dừng game
+        Time.timeScale = 0;
     }
 
-    public void RestartGame()
+    public void RetryGame()
     {
-        Time.timeScale = 1; // Khôi phục thời gian
+        Time.timeScale = 1; // Tiếp tục thời gian
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Load lại scene hiện tại
     }
 
     public void GoToMainMenu()
     {
-        Time.timeScale = 1; // Khôi phục thời gian
-        SceneManager.LoadScene("Menu"); // Thay "MainMenu" bằng tên scene màn hình chính của bạn
+        Time.timeScale = 1; // Tiếp tục thời gian
+        SceneManager.LoadScene("Menu"); // Đổi tên "Menu" thành tên scene chính của bạn
     }
 }
