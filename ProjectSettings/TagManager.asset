@@ -11,7 +11,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - GameoverUI
   - Water
   - UI
   - 
@@ -41,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: GameoverUI
+    uniqueID: 1480756685
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

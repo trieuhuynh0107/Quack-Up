@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 212594428}
   - component: {fileID: 212594427}
   - component: {fileID: 212594426}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CurrentScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +591,7 @@ GameObject:
   - component: {fileID: 1108187117}
   - component: {fileID: 1108187116}
   - component: {fileID: 1108187115}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: GameOverUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -693,7 +693,7 @@ GameObject:
   - component: {fileID: 1173329159}
   - component: {fileID: 1173329158}
   - component: {fileID: 1173329157}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: PlayAgain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +824,7 @@ GameObject:
   - component: {fileID: 1234783983}
   - component: {fileID: 1234783985}
   - component: {fileID: 1234783984}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: GameOverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1026,7 +1026,7 @@ GameObject:
   - component: {fileID: 1411344649}
   - component: {fileID: 1411344648}
   - component: {fileID: 1411344647}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: HighScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1309,8 +1309,8 @@ Transform:
   m_GameObject: {fileID: 1611416957}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3158, y: 3.4606, z: 10}
-  m_LocalScale: {x: 4.8494773, y: 4.258546, z: 1}
+  m_LocalPosition: {x: 0.0779, y: 3.8616, z: 10}
+  m_LocalScale: {x: 5.6252027, y: 4.4139323, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 519420032}
@@ -1464,7 +1464,7 @@ GameObject:
   - component: {fileID: 1950399450}
   - component: {fileID: 1950399449}
   - component: {fileID: 1950399448}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: BackToMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1595,7 +1595,7 @@ GameObject:
   - component: {fileID: 1991135333}
   - component: {fileID: 1991135335}
   - component: {fileID: 1991135334}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: GameOverPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
