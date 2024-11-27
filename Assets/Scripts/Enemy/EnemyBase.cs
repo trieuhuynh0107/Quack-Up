@@ -52,13 +52,14 @@ public class EnemyBase : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Tìm GameOverManager trong Scene
             GameOverManager gameOverManager = FindObjectOfType<GameOverManager>();
             if (gameOverManager != null)
             {
-                // Tính điểm hiện tại (tùy thuộc vào game của bạn)
-                int currentScore = 0; // Thay thế bằng hệ thống điểm hiện tại
-                gameOverManager.ShowGameOverMenu(currentScore); // Hiển thị giao diện Game Over
+                gameOverManager.GameOverByEnemy(); // Gọi hàm GameOverByEnemy
+            }
+            else
+            {
+                Debug.LogError("GameOverManager not found!");
             }
         }
     }

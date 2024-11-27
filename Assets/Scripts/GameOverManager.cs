@@ -1,48 +1,61 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro; // TextMeshPro cho UI
+using TMPro;
+using Game.Score; // Thêm namespace của ScoreManager
 
 public class GameOverManager : MonoBehaviour
 {
-    public GameObject gameOverPanel; // Game Over Panel
-    public TextMeshProUGUI highScoreText; // Hiển thị High Score
-    public TextMeshProUGUI currentScoreText; // Hiển thị Current Score
+    public GameObject gameOverPanel;
+    public TextMeshProUGUI highScoreText;
+    public TextMeshProUGUI currentScoreText;
 
-    private bool isGameOver = false; // Trạng thái Game Over
+    private bool isGameOver = false;
 
     public void ShowGameOverMenu(int currentScore)
     {
-        if (isGameOver) return; // Tránh gọi nhiều lần
+        if (isGameOver) return;
         isGameOver = true;
 
-        // Hiển thị Game Over Panel
         gameOverPanel.SetActive(true);
 
-        // Cập nhật High Score
         int highScore = Data_Manager.GetHighScore();
         if (currentScore > highScore)
         {
             highScore = currentScore;
-            Data_Manager.SetHighScore(highScore); // Lưu điểm cao nhất
+            Data_Manager.SetHighScore(highScore);
         }
 
-        // Hiển thị điểm trong Panel
         highScoreText.text = $"High Score: {highScore}";
         currentScoreText.text = $"Score: {currentScore}";
 
-        // Dừng game
         Time.timeScale = 0;
     }
 
     public void RetryGame()
     {
-        Time.timeScale = 1; // Tiếp tục thời gian
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Load lại scene hiện tại
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void GoToMainMenu()
     {
-        Time.timeScale = 1; // Tiếp tục thời gian
-        SceneManager.LoadScene("Menu"); // Đổi tên "Menu" thành tên scene chính của bạn
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Menu");
+    }
+
+    // Game Over khi Player va chạm với Enemy
+    public void GameOverByEnemy()
+    {
+        // Lấy điểm từ ScoreManager
+        ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
+        if (scoreManager != null)
+        {
+            int currentScore = scoreManager.GetCurrentScore();
+            ShowGameOverMenu(currentScore); // Gọi hàm hiển thị giao diện
+        }
+        else
+        {
+            Debug.LogError("ScoreManager not found!");
+        }
     }
 }

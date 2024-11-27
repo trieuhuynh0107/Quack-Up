@@ -25,16 +25,21 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Gọi GameOverManager để xử lý thua game
+            // Lấy GameOverManager
             GameOverManager gameOverManager = FindObjectOfType<GameOverManager>();
             if (gameOverManager != null)
             {
-                int currentScore = FindObjectOfType<ScoreManager>().GetCurrentScore(); // Lấy điểm hiện tại
-                gameOverManager.ShowGameOverMenu(currentScore); // Hiển thị Game Over
+                // Lấy ScoreManager
+                ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
+                if (scoreManager != null)
+                {
+                    int currentScore = scoreManager.GetCurrentScore(); // Lấy điểm hiện tại
+                    gameOverManager.ShowGameOverMenu(currentScore); // Hiển thị Game Over
+                }
             }
-
             // Hủy đạn sau khi va chạm với Player
             Destroy(gameObject);
         }
     }
+
 }
