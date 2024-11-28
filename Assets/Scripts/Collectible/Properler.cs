@@ -13,16 +13,7 @@ public class Propeller : Collectible
 
     void Start()
     {
-        // Tìm GameManager trong Scene
-        GameObject managerObject = GameObject.FindWithTag("GameController");
-        if (managerObject != null && managerObject.TryGetComponent(out GameManager manager))
-        {
-            gameManager = manager;
-        }
-        else
-        {
-            Debug.LogError("GameManager not found or missing required component!");
-        }
+        
     }
 
     void FixedUpdate()
