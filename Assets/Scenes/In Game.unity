@@ -405,6 +405,29 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8071567104259407983, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
   m_PrefabInstance: {fileID: 4092309292240839416}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &685670326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685670325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff9d1d37d7b1f848bc54065dde3daa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duckSkins:
+  - {fileID: 21300000, guid: f8d633eb4dc428c4c824d7695558f856, type: 3}
+  - {fileID: 21300000, guid: 9354bfadad631454ea95499ef752c18a, type: 3}
+  - {fileID: 21300000, guid: deec459020748a3488c32c3048d56e06, type: 3}
+  - {fileID: 21300000, guid: 6e359df4bb11f674f861300117ec653b, type: 3}
+  - {fileID: 21300000, guid: 6009e86dad839fc49b8964669a0d13a1, type: 3}
+  - {fileID: 21300000, guid: 93c58201589ff4f4c87d787887a63082, type: 3}
+  - {fileID: 21300000, guid: 8ccd87cef3d764f4dbec3ac76bbcbf3d, type: 3}
+  - {fileID: 21300000, guid: 7234fd91b58ef4c4ab0d9f65a0412d31, type: 3}
+  - {fileID: 21300000, guid: 44e6eb8e8d8c1c046ad00f762913baad, type: 3}
+  - {fileID: 21300000, guid: 15c9e208f7e936b49976a16c9443eb67, type: 3}
 --- !u!1 &780384287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1680,17 +1703,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3563992845606615460, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
+      propertyPath: m_Size.x
+      value: 4.280442
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563992845606615460, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8320129
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563992845606615460, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.071415424
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563992845606615460, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
+      propertyPath: m_Offset.y
+      value: -2.105227
+      objectReference: {fileID: 0}
     - target: {fileID: 4093425380191391922, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
       propertyPath: bulletSpawnPoint
       value: 
       objectReference: {fileID: 223823082}
     - target: {fileID: 4635574072856459423, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.75
+      value: 0.30620188
       objectReference: {fileID: 0}
     - target: {fileID: 4635574072856459423, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 0.32310757
       objectReference: {fileID: 0}
     - target: {fileID: 4635574072856459423, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
       propertyPath: m_LocalScale.z
@@ -1698,11 +1737,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4635574072856459423, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4635574072856459423, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.3
+      value: -2.39
       objectReference: {fileID: 0}
     - target: {fileID: 4635574072856459423, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1790,7 +1829,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4635574072856459423, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 223823082}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8071567104259407983, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 685670326}
   m_SourcePrefab: {fileID: 100100000, guid: 1042bef8af9757f4daa25669884c1c3e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
