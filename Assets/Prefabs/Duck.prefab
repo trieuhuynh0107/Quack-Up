@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5120121413182400149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1915489354988700819}
+  m_Layer: 6
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1915489354988700819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5120121413182400149}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.95, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4635574072856459423}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8071567104259407983
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,9 +45,10 @@ GameObject:
   - component: {fileID: 5270251127818206727}
   - component: {fileID: 4093425380191391922}
   - component: {fileID: 3563992845606615460}
-  m_Layer: 0
+  - component: {fileID: 8914832090009576790}
+  m_Layer: 6
   m_Name: Duck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,9 +63,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.4, y: -0.98, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0}
+  m_LocalScale: {x: 0.30620188, y: 0.32310757, z: 0.75}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1915489354988700819}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8741154960405559905
@@ -141,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7447950230152196244, guid: ca3fbf36f013d66419b496ac8299cc4e, type: 3}
-  bulletSpawnPoint: {fileID: 0}
+  bulletSpawnPoint: {fileID: 1915489354988700819}
   shootCooldown: 0.5
 --- !u!61 &3563992845606615460
 BoxCollider2D:
@@ -175,7 +208,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07925558, y: -0.37393075}
+  m_Offset: {x: -0.09284258, y: -1.8074363}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -186,5 +219,28 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.6230626, y: 0.8682015}
+  m_Size: {x: 4.0376267, y: 1.2364323}
   m_EdgeRadius: 0
+--- !u!114 &8914832090009576790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8071567104259407983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff9d1d37d7b1f848bc54065dde3daa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duckSkins:
+  - {fileID: 21300000, guid: f8d633eb4dc428c4c824d7695558f856, type: 3}
+  - {fileID: 21300000, guid: 9354bfadad631454ea95499ef752c18a, type: 3}
+  - {fileID: 21300000, guid: deec459020748a3488c32c3048d56e06, type: 3}
+  - {fileID: 21300000, guid: 6e359df4bb11f674f861300117ec653b, type: 3}
+  - {fileID: 21300000, guid: 6009e86dad839fc49b8964669a0d13a1, type: 3}
+  - {fileID: 21300000, guid: 93c58201589ff4f4c87d787887a63082, type: 3}
+  - {fileID: 21300000, guid: 8ccd87cef3d764f4dbec3ac76bbcbf3d, type: 3}
+  - {fileID: 21300000, guid: 7234fd91b58ef4c4ab0d9f65a0412d31, type: 3}
+  - {fileID: 21300000, guid: 44e6eb8e8d8c1c046ad00f762913baad, type: 3}
+  - {fileID: 21300000, guid: 15c9e208f7e936b49976a16c9443eb67, type: 3}

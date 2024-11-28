@@ -74,7 +74,7 @@ public class Propeller : Collectible
             // Gắn Propeller vào Player
             transform.parent = player.transform;
             transform.name = "Propeller"; // Đặt tên để dễ kiểm tra
-            transform.localPosition = new Vector3(0, 2f, 0); // Điều chỉnh vị trí cho đúng với Player
+            transform.localPosition = new Vector3(0, 4f, 0); // Điều chỉnh vị trí cho đúng với Player
 
             // Vô hiệu hóa collider
             if (TryGetComponent(out BoxCollider2D boxCollider))
