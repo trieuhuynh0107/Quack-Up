@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4130559327298546111}
   - component: {fileID: 1530854956581926582}
   - component: {fileID: 5568374880055155957}
+  - component: {fileID: 2193510440541465998}
   m_Layer: 0
   m_Name: Trampoline
   m_TagString: Object
@@ -279,3 +280,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpForce: 1000
+--- !u!114 &2193510440541465998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214340590924499576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd6d51d3031d7540ae4e42acdcd8d3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
