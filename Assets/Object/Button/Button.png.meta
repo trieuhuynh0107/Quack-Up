@@ -433,7 +433,7 @@ TextureImporter:
         width: 210
         height: 232
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 23, z: 0, w: 10}
       outline: []
       physicsShape: []
@@ -441,6 +441,69 @@ TextureImporter:
       bones: []
       spriteID: d98f4b262bb1bc4418a13418fee43b08
       internalID: -1146911207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_14
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 2398
+        width: 455
+        height: 213
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: addd859af724c584f980a7337487ae64
+      internalID: 1925037785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_15
+      rect:
+        serializedVersion: 2
+        x: 2742
+        y: 2744
+        width: 202
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28067b3ceebfeb347a83b1f98a44c1fc
+      internalID: 2075511887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_16
+      rect:
+        serializedVersion: 2
+        x: 2745
+        y: 2522
+        width: 199
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32967667a3a0704891d9e8865a1ac2f
+      internalID: 734213872
       vertices: []
       indices: 
       edges: []
@@ -463,6 +526,9 @@ TextureImporter:
       Button_11: 1515606966
       Button_12: -1135954649
       Button_13: -1146911207
+      Button_14: 1925037785
+      Button_15: 2075511887
+      Button_16: 734213872
       Button_2: 1262021382
       Button_3: 724643440
       Button_4: -1075075265
