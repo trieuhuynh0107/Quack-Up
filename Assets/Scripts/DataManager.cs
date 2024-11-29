@@ -1,81 +1,29 @@
-﻿using System.IO;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public static class Data_Manager
+namespace Game.Score
 {
-    private static string saveFilePath = Application.persistentDataPath + "/playerData.json"; // File lưu trữ
-    private static PlayerData playerData = new PlayerData(); // Cấu trúc dữ liệu mặc định
-
-    // Lưu dữ liệu vào file
-    public static void SaveData()
+    public static class Data_Manager
     {
-        string json = JsonUtility.ToJson(playerData);
-        File.WriteAllText(saveFilePath, json);
-    }
+        private const string HighScoreKey = "HighScore"; // Khóa lưu trữ HighScore
 
-    // Tải dữ liệu từ file
-    public static void LoadData()
-    {
-        if (File.Exists(saveFilePath))
+        // Lấy HighScore từ PlayerPrefs
+        public static int GetHighScore()
         {
-            string json = File.ReadAllText(saveFilePath);
-            playerData = JsonUtility.FromJson<PlayerData>(json);
-        }
-    }
-
-    public static void SetHighScore(int score)
-    {
-        if (score > playerData.highScore)
-        {
-            playerData.highScore = score;
-            SaveData();
-        }
-    }
-
-    public static int GetHighScore()
-    {
-        return playerData.highScore;
-    }
-
-    public static List<(string, int)> GetTopScores()
-    {
-        // Chuyển danh sách lưu trữ sang danh sách dễ sử dụng
-        List<(string, int)> topScores = new List<(string, int)>();
-        foreach (var entry in playerData.topScores)
-        {
-            topScores.Add((entry.name, entry.score));
-        }
-        return topScores;
-    }
-
-    public static void AddToTopScores(string name, int score)
-    {
-        playerData.topScores.Add(new ScoreEntry { name = name, score = score });
-
-        // Sắp xếp theo điểm giảm dần
-        playerData.topScores.Sort((a, b) => b.score.CompareTo(a.score));
-
-        // Giữ lại top 5
-        if (playerData.topScores.Count > 5)
-        {
-            playerData.topScores.RemoveRange(5, playerData.topScores.Count - 5);
+            return PlayerPrefs.GetInt(HighScoreKey, 0); // 0 là giá trị mặc định nếu chưa có
         }
 
-        SaveData();
-    }
+        // Lưu HighScore vào PlayerPrefs
+        public static void SetHighScore(int highScore)
+        {
+            PlayerPrefs.SetInt(HighScoreKey, highScore); // Lưu giá trị
+            PlayerPrefs.Save(); // Đảm bảo dữ liệu được ghi lại
+        }
 
-    [System.Serializable]
-    private class PlayerData
-    {
-        public int highScore = 0;
-        public List<ScoreEntry> topScores = new List<ScoreEntry>(); // Danh sách điểm cao
-    }
-
-    [System.Serializable]
-    private class ScoreEntry
-    {
-        public string name; // Tên người chơi
-        public int score; // Điểm số
+        // Reset HighScore (nếu cần)
+        public static void ResetHighScore()
+        {
+            PlayerPrefs.DeleteKey(HighScoreKey); // Xóa khóa lưu trữ
+            PlayerPrefs.Save();
+        }
     }
 }
