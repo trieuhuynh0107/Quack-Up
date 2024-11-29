@@ -1,60 +1,114 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance;
+    public static AudioManager Instance { get; private set; }
 
-    public AudioSource backgroundMusic; // Nhạc nền
+    public AudioSource musicSource; // Nhạc nền
+    public List<GameObject> soundParents; // Danh sách các GameObject chứa sound effects (ví dụ: con vịt, đồ vật)
 
     private bool isMusicOn = true;
-    private bool isSoundEffectOn = true;
+    private bool isSoundOn = true;
 
-    void Awake()
+    private void Awake()
     {
-        // Singleton Pattern
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Giữ AudioManager qua các scene
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
-        }
-    }
-
-    public void ToggleSoundEffects()
-    {
-        isSoundEffectOn = !isSoundEffectOn;
-
-        // Thông báo cho tất cả các prefab có `SoundEffectController`
-        SoundEffectController[] controllers = FindObjectsOfType<SoundEffectController>();
-        foreach (var controller in controllers)
-        {
-            controller.UpdateSoundState();
+            return;
         }
 
-        Debug.Log($"Sound effects: {(isSoundEffectOn ? "On" : "Off")}");
+        // Lấy trạng thái từ PlayerPrefs
+        isMusicOn = PlayerPrefs.GetInt("MusicOn", 1) == 1;
+        isSoundOn = PlayerPrefs.GetInt("SoundOn", 1) == 1;
+
+        UpdateAudioStates();
     }
 
     public void ToggleMusic()
     {
         isMusicOn = !isMusicOn;
-        if (backgroundMusic != null)
-        {
-            backgroundMusic.mute = !isMusicOn;
-        }
+        musicSource.mute = !isMusicOn;
 
-        Debug.Log($"Background music: {(isMusicOn ? "On" : "Off")}");
+        PlayerPrefs.SetInt("MusicOn", isMusicOn ? 1 : 0);
+        PlayerPrefs.Save();
     }
 
-    public bool IsSoundEffectOn()
+    public void ToggleSound()
     {
-        return isSoundEffectOn;
+        isSoundOn = !isSoundOn;
+
+        foreach (var parent in soundParents)
+        {
+            if (parent != null)
+            {
+                AudioSource[] sources = parent.GetComponentsInChildren<AudioSource>();
+                foreach (var source in sources)
+                {
+                    source.mute = !isSoundOn;
+                }
+            }
+        }
+
+        PlayerPrefs.SetInt("SoundOn", isSoundOn ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+    private void UpdateAudioStates()
+    {
+        // Áp dụng trạng thái nhạc
+        musicSource.mute = !isMusicOn;
+
+        // Áp dụng trạng thái sound effects cho tất cả các GameObject con
+        foreach (var parent in soundParents)
+        {
+            if (parent != null)
+            {
+                AudioSource[] sources = parent.GetComponentsInChildren<AudioSource>();
+                foreach (var source in sources)
+                {
+                    source.mute = !isSoundOn;
+                }
+            }
+        }
+    }
+
+    public void PlaySound(string soundName)
+    {
+        if (!isSoundOn) return;
+
+        foreach (var parent in soundParents)
+        {
+            if (parent != null)
+            {
+                AudioSource[] sources = parent.GetComponentsInChildren<AudioSource>();
+                foreach (var source in sources)
+                {
+                    if (source.name == soundName)
+                    {
+                        source.Play();
+                        return;
+                    }
+                }
+            }
+        }
+
+        Debug.LogWarning($"Sound '{soundName}' not found in soundParents.");
     }
 
     public bool IsMusicOn()
     {
         return isMusicOn;
+    }
+
+    public bool IsSoundOn()
+    {
+        return isSoundOn;
     }
 }
