@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3811937387c6eb347857c757a00fb26b
+guid: 4370f78178c09db45a48e313b7fb49b6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,17 +93,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: submarine
+      name: green
       rect:
         serializedVersion: 2
-        x: 415
-        y: 253
-        width: 100
-        height: 80
+        x: 0
+        y: 991
+        width: 120
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +124,146 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e232e46ccd9f88f4c819c553de9e7a54
-      internalID: 750118363
+      spriteID: 2a645720e0921804f9e5d0f76be694ab
+      internalID: -828579895
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crab
+      name: blue
       rect:
         serializedVersion: 2
-        x: 357
-        y: 182
-        width: 82
-        height: 63
+        x: 0
+        y: 956
+        width: 120
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8523a1c000f7b419897b858c4aecf7
+      internalID: 1108766896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gray
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 918
+        width: 119
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1beaeaa8f4c7b394babe98ee1448a5e7
+      internalID: -1223843476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 883
+        width: 122
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75858e275bc637d459ea63721fb93b52
+      internalID: 2082785862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brown
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 845
+        width: 126
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bc7d4e1ffa04624b92ba32783e9c532
+      internalID: -682382667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Properler
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 513
+        width: 66
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b262f8ef3a9c11e4f904d2b388fb9058
+      internalID: 2116628527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampoline
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 796
+        width: 78
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f801170a5bc7f23409f24b5f3a2530d6
+      internalID: 935535669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spring
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 738
+        width: 40
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,134 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0697e457b5e356141b9ef33f8e96843b
-      internalID: -2028052450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jellyfish
-      rect:
-        serializedVersion: 2
-        x: 344
-        y: 296
-        width: 56
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 37020c5c757cf28479f01aacb77b5c89
-      internalID: 2021246800
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shark
-      rect:
-        serializedVersion: 2
-        x: 244
-        y: 253
-        width: 96
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 371342d59e7fb794ba352c15a8d59689
-      internalID: -772366173
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: octopus
-      rect:
-        serializedVersion: 2
-        x: 151
-        y: 255
-        width: 71
-        height: 78
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 905476145192bc047855af131568ddc4
-      internalID: 503647082
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squid
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 150
-        width: 61
-        height: 76
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3be9d7178d290114ca3fc963bd63aa76
-      internalID: 2113962552
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: star
-      rect:
-        serializedVersion: 2
-        x: 199
-        y: 143
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b6f3a101850e97a46940bb9fdbe2cad8
-      internalID: -1712769660
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: seaweed
-      rect:
-        serializedVersion: 2
-        x: 167
-        y: 18
-        width: 103
-        height: 95
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87d4969bcf2e4084095ebebdbf4c29f0
-      internalID: 618959311
+      spriteID: d8db263aaeebc1a418bcb0d13440d307
+      internalID: 1652980077
       vertices: []
       indices: 
       edges: []
@@ -275,14 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      crab: -2028052450
-      jellyfish: 2021246800
-      octopus: 503647082
-      seaweed: 618959311
-      shark: -772366173
-      squid: 2113962552
-      star: -1712769660
-      submarine: 750118363
+      Properler: 2116628527
+      Trampoline: 935535669
+      blue: 1108766896
+      brown: -682382667
+      gray: -1223843476
+      green: -828579895
+      spring: 1652980077
+      white: 2082785862
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

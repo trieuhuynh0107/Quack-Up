@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4370f78178c09db45a48e313b7fb49b6
+guid: 8aa42ba067a7eda47bf3ac4e95c99ebf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,17 +93,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: green
+      name: Setting Panel
       rect:
         serializedVersion: 2
-        x: 0
-        y: 991
-        width: 120
-        height: 33
+        x: 21
+        y: 414
+        width: 455
+        height: 364
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a645720e0921804f9e5d0f76be694ab
-      internalID: -828579895
+      spriteID: b01eb3038f9dc2d48ac133121446ebbc
+      internalID: -1030041978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blue
+      name: GameOver Panel
       rect:
         serializedVersion: 2
-        x: 0
-        y: 956
-        width: 120
-        height: 36
+        x: 563
+        y: 414
+        width: 455
+        height: 365
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e8523a1c000f7b419897b858c4aecf7
-      internalID: 1108766896
+      spriteID: 3782c1ff09b4e2f4a8e5ebe37297a614
+      internalID: 1996031098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gray
+      name: Wardrobe Panel
       rect:
         serializedVersion: 2
-        x: 0
-        y: 918
-        width: 119
-        height: 38
+        x: 25
+        y: 3
+        width: 455
+        height: 366
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1beaeaa8f4c7b394babe98ee1448a5e7
-      internalID: -1223843476
+      spriteID: 684d473ce13bac445befccfad7d705f8
+      internalID: -1182214116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: white
+      name: GamePlay Panel
       rect:
         serializedVersion: 2
-        x: 0
-        y: 883
-        width: 122
-        height: 36
+        x: 563
+        y: 3
+        width: 455
+        height: 366
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,92 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75858e275bc637d459ea63721fb93b52
-      internalID: 2082785862
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: brown
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 845
-        width: 126
-        height: 37
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1bc7d4e1ffa04624b92ba32783e9c532
-      internalID: -682382667
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Properler
-      rect:
-        serializedVersion: 2
-        x: 662
-        y: 513
-        width: 66
-        height: 40
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b262f8ef3a9c11e4f904d2b388fb9058
-      internalID: 2116628527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trampoline
-      rect:
-        serializedVersion: 2
-        x: 374
-        y: 796
-        width: 78
-        height: 36
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f801170a5bc7f23409f24b5f3a2530d6
-      internalID: 935535669
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spring
-      rect:
-        serializedVersion: 2
-        x: 805
-        y: 738
-        width: 40
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8db263aaeebc1a418bcb0d13440d307
-      internalID: 1652980077
+      spriteID: 7b0c4dd24183c344b9f8d9c40915f2d2
+      internalID: 306070328
       vertices: []
       indices: 
       edges: []
@@ -275,14 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Properler: 2116628527
-      Trampoline: 935535669
-      blue: 1108766896
-      brown: -682382667
-      gray: -1223843476
-      green: -828579895
-      spring: 1652980077
-      white: 2082785862
+      GameOver Panel: 1996031098
+      GamePlay Panel: 306070328
+      Setting Panel: -1030041978
+      Wardrobe Panel: -1182214116
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
