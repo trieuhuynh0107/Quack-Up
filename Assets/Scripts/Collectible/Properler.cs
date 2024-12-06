@@ -9,7 +9,7 @@ public class Propeller : Collectible
     private Rigidbody2D playerRigidbody; // Tham chiếu Rigidbody2D của Player
     private bool isAttached = false; // Kiểm tra nếu Propeller đang gắn vào Player
 
-    private GameManager gameManager; // Tham chiếu đến GameManager
+    private PlatformManager gameManager; // Tham chiếu đến PlatformManager
 
     void Start()
     {

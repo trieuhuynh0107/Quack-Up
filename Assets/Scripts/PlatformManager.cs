@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class GameManager : MonoBehaviour
+public class PlatformManager : MonoBehaviour
 {
     [Header("Player & Platform Settings")]
     public GameObject Player; // Nhân vật chính
